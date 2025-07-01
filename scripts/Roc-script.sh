@@ -1,7 +1,7 @@
 # 修改默认IP & 固件名称 & 编译署名
 sed -i 's/192.168.1.1/192.168.100.1/g' package/base-files/files/bin/config_generate
 sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/config_generate
-#sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Build by Roc')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
+sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ Build by zouxin')/g" feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js
 
 # 修正使用ccache编译vlmcsd的问题
 mkdir -p feeds/packages/net/vlmcsd/patches
@@ -22,12 +22,12 @@ function git_sparse_clone() {
 }
 
 # OpenList & AdGuardHome & WolPlus & Lucky & OpenAppFilter & 集客无线AC控制器 & 雅典娜LED控制
-git clone --depth=1 https://github.com/sbwml/luci-app-openlist package/openlist
-git_sparse_clone master https://github.com/kenzok8/openwrt-packages adguardhome luci-app-adguardhome
-git_sparse_clone main https://github.com/VIKINGYFY/packages luci-app-wolplus
+#git clone --depth=1 https://github.com/sbwml/luci-app-openlist package/openlist
+#git_sparse_clone master https://github.com/kenzok8/openwrt-packages adguardhome luci-app-adguardhome
+#git_sparse_clone main https://github.com/VIKINGYFY/packages luci-app-wolplus
 git clone --depth=1 https://github.com/gdy666/luci-app-lucky package/luci-app-lucky
-git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
-git clone --depth=1 https://github.com/lwb1978/openwrt-gecoosac package/openwrt-gecoosac
+#git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+#git clone --depth=1 https://github.com/lwb1978/openwrt-gecoosac package/openwrt-gecoosac
 git clone --depth=1 https://github.com/NONGFAH/luci-app-athena-led package/luci-app-athena-led
 chmod +x package/luci-app-athena-led/root/etc/init.d/athena_led package/luci-app-athena-led/root/usr/sbin/athena-led
 
